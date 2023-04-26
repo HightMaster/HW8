@@ -30,6 +30,7 @@ function fileExists(filePath){
         return "false"
     }
 }
+//All tests for makepassword.js are done here
 describe("makepassword should create file", () => {
     test('Testing makepassword',() => {
 
