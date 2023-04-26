@@ -36,7 +36,7 @@ describe("makepassword should create file", () => {
         const fileName = './tests/passwordtest.txt'
         const encFileName = './tests/passwordtest.enc.txt'
         if (fs.existsSync(encFileName)) fs.unlinkSync(encFileName);
-        
+
         expect(fs.existsSync(encFileName)).toEqual(false)
         // // 1. Make sure password.enc.txt does not exist before running the function.
         // ???
