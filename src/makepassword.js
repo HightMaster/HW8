@@ -31,4 +31,4 @@ if (require.main === module) {
     makepassword('./password.txt', '../password.enc.txt')
 }
 
-module.exports = {makepassword};
+module.exports = {makepassword, transformData};

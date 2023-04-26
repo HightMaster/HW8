@@ -12,7 +12,8 @@ function readFile(fileName) {
         var textByLine = text.split("\n");
         return textByLine;
     } catch (err) {
-        console.log(err)
+        //console.log(err)
+        return false
     }
 }
 
