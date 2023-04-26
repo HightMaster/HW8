@@ -9,6 +9,7 @@
 const p = require('../src/makepassword');
 const u = require('../src/utility');
 const fs = require('fs');
+const expect = require("expect");
 
 /*
 // Let's say you have a toHash() function in this module
@@ -21,19 +22,19 @@ test('Check toHash(): if the email:password is converted into email:hashPassword
 */
 
 describe("makepassword should create file", () => {
-    test('',() => {
+    test('Testing makepassword',() => {
         const fileName = './tests/passwordtest.txt'
         const encFileName = './tests/passwordtest.enc.txt'
-
-        // 1. Make sure password.enc.txt does not exist before running the function.
-        ???
-        
-        p.makepassword(fileName, encFileName)
-
-        // 2. Make sure password.enc.txt does exist after running the function.
-        ???
-
-        // 3. Make sure the contents of password.enc.txt has correct contents.
-        ???
+        expect()
+        // // 1. Make sure password.enc.txt does not exist before running the function.
+        // ???
+        //
+        // p.makepassword(fileName, encFileName)
+        //
+        // // 2. Make sure password.enc.txt does exist after running the function.
+        // ???
+        //
+        // // 3. Make sure the contents of password.enc.txt has correct contents.
+        // ???
     })
 })
