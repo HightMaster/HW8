@@ -30,29 +30,39 @@ function fileExists(filePath){
         return "false"
     }
 }
+
+const fileName = './tests/passwordtest.txt'
+const encFileName = './tests/passwordtest.enc.txt'
 //All tests for makepassword.js are done here
 describe("makepassword should create file", () => {
-    test('Testing makepassword',() => {
+    test('Testing if encrypted password file is created properly. If so, should return false initially, then true',() => {
 
-        const fileName = './tests/passwordtest.txt'
-        const encFileName = './tests/passwordtest.enc.txt'
+
+        //If the encrypted password file exists, then delete it
         if (fs.existsSync(encFileName)) fs.unlinkSync(encFileName);
 
+        //1. Make sure password.enc.txt does not exist before running the function.
         expect(fs.existsSync(encFileName)).toEqual(false)
-        // // 1. Make sure password.enc.txt does not exist before running the function.
-        // ???
-        //
-        p.makepassword(fileName, encFileName)
-        //
-        // // 2. Make sure password.enc.txt does exist after running the function.
-        // ???
-        expect(fs.existsSync(encFileName)).toEqual(true)
-        //
-        // // 3. Make sure the contents of password.enc.txt has correct contents.
-        // ???
-        expect(readFile(encFileName)).toEqual(readFile("./tests/passwordtest.enc.txt"))
 
+        p.makepassword(fileName, encFileName)
+
+        // 2. Make sure password.enc.txt does exist after running the function.
+        expect(fs.existsSync(encFileName)).toEqual(true)
+
+    })
+})
+
+describe("Testing makepassword", () => {
+    test(("Ensures the encrypted password.enc.txt file is being created properly"), ()=>{
+        // 3. Make sure the contents of password.enc.txt has correct contents.
+        expect(readFile(encFileName)).toEqual(readFile("./tests/passwordtest.enc.txt"))
+    })
+});
+
+//Ensures the data is being transformed properly from plaintext to the correct hash
+describe("Testing transformData()", () => {
+    test(("Assuming that the function is working properly, should return true"), ()=>{
         //Testing personal transformData() function
         expect(transformData("sm.cho@hello.com:123456")).toEqual("sm.cho@hello.com:8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92")
     })
-})
+});
